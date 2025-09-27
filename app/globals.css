@@ -9,4 +9,43 @@ th { background: #fafafa; }
 .stack { display: grid; gap: 0.75rem; }
 .card { border: 1px solid #eee; padding: 1rem; border-radius: 8px; }
 .muted { color: #666; }
+.page { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+.cards-grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+.card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+.card-header h2 { margin: 0 0 0.25rem; font-size: 1.25rem; }
+.alert { border-radius: 8px; padding: 0.75rem 1rem; border: 1px solid transparent; }
+.alert-error { background: #fef2f2; border-color: #fecaca; color: #b91c1c; }
+.portfolio-card { display: flex; flex-direction: column; gap: 1.5rem; }
+.portfolio-empty { background: #fafafa; border-radius: 8px; padding: 1rem; }
+.portfolio-visual { display: flex; flex-direction: column; align-items: center; gap: 1.25rem; }
+.portfolio-chart { width: 220px; height: 220px; border-radius: 50%; position: relative; display: flex; align-items: center; justify-content: center; background: #e5e7eb; }
+.portfolio-chart__inner { width: 120px; height: 120px; border-radius: 50%; background: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05); text-align: center; }
+.portfolio-chart__total { font-size: 1.1rem; font-weight: 600; }
+.portfolio-chart__label { font-size: 0.85rem; color: #555; }
+.asset-list { list-style: none; padding: 0; margin: 0; width: 100%; display: grid; gap: 0.75rem; }
+.asset-list li { display: grid; grid-template-columns: auto 1fr auto; gap: 0.75rem; align-items: center; }
+.asset-color { width: 10px; height: 10px; border-radius: 50%; }
+.asset-meta { display: flex; flex-direction: column; gap: 0.15rem; }
+.asset-meta strong { font-size: 0.95rem; }
+.asset-amount { font-variant-numeric: tabular-nums; font-weight: 500; }
+.connection-card { display: flex; flex-direction: column; gap: 1.25rem; }
+.connection-body { display: flex; flex-direction: column; gap: 1rem; }
+.exchange-grid { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+.exchange-button { display: flex; align-items: center; gap: 0.75rem; border: 1px solid #e5e7eb; border-radius: 10px; padding: 0.75rem 1rem; background: #fff; cursor: pointer; transition: border-color 0.2s, box-shadow 0.2s; justify-content: space-between; }
+.exchange-button:hover:not(:disabled) { border-color: #6366f1; box-shadow: 0 6px 18px rgba(99, 102, 241, 0.12); }
+.exchange-button:disabled { opacity: 0.6; cursor: not-allowed; }
+.exchange-meta { display: flex; align-items: center; gap: 0.75rem; font-weight: 500; }
+.exchange-logo { width: 32px; height: 32px; flex-shrink: 0; }
+.exchange-logo path, .exchange-logo rect { transition: transform 0.2s; }
+.exchange-badge { background: #eef2ff; color: #4338ca; font-size: 0.75rem; border-radius: 999px; padding: 0.2rem 0.6rem; }
+.connected-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.connected-badge { background: #f3f4f6; border-radius: 999px; padding: 0.25rem 0.75rem; font-size: 0.85rem; }
+.link-button { background: transparent; border: none; color: #2563eb; cursor: pointer; padding: 0; text-decoration: underline; font-size: 0.9rem; }
+.link-button:hover { color: #1d4ed8; }
+.error-text { color: #b91c1c; font-size: 0.85rem; margin: 0; }
 
+@media (max-width: 640px) {
+  .page { padding: 1.5rem 1rem 2rem; }
+  .portfolio-chart { width: 180px; height: 180px; }
+  .portfolio-chart__inner { width: 100px; height: 100px; }
+}
