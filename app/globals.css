@@ -35,8 +35,7 @@ th { background: #fafafa; }
 .exchange-button:hover:not(:disabled) { border-color: #6366f1; box-shadow: 0 6px 18px rgba(99, 102, 241, 0.12); }
 .exchange-button:disabled { opacity: 0.6; cursor: not-allowed; }
 .exchange-meta { display: flex; align-items: center; gap: 0.75rem; font-weight: 500; }
-.exchange-logo { width: 32px; height: 32px; flex-shrink: 0; }
-.exchange-logo path, .exchange-logo rect { transition: transform 0.2s; }
+.exchange-logo { width: 32px; height: 32px; flex-shrink: 0; border-radius: 8px; object-fit: cover; }
 .exchange-badge { background: #eef2ff; color: #4338ca; font-size: 0.75rem; border-radius: 999px; padding: 0.2rem 0.6rem; }
 .connected-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .connected-badge { background: #f3f4f6; border-radius: 999px; padding: 0.25rem 0.75rem; font-size: 0.85rem; }

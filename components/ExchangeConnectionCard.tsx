@@ -1,11 +1,12 @@
 "use client";
+import Image from 'next/image';
 import { useMemo, useState, type FormEvent } from 'react';
-import type { ComponentType, SVGProps } from 'react';
+import type { StaticImageData } from 'next/image';
 
 export type ExchangeOption = {
   id: string;
   name: string;
-  Logo: ComponentType<SVGProps<SVGSVGElement>>;
+  logo: StaticImageData;
 };
 
 type CredInput = {
@@ -114,7 +115,7 @@ export function ExchangeConnectionCard({ exchanges, onConnect, busy, connectedEx
                     disabled={busy && !selected}
                   >
                     <span className="exchange-meta">
-                      <exchange.Logo className="exchange-logo" aria-hidden />
+                      <Image src={exchange.logo} alt={`${exchange.name} 로고`} className="exchange-logo" width={32} height={32} />
                       <span>{exchange.name}</span>
                     </span>
                     {isConnected && <span className="exchange-badge">연동됨</span>}

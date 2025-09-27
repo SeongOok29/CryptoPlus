@@ -8,6 +8,7 @@ import { ExchangeConnectionCard, type ExchangeOption } from '@/components/Exchan
 import { PortfolioSummaryCard } from '@/components/PortfolioSummaryCard';
 import { CONNECTORS } from '@/lib/connectors';
 import type { Balance } from '@/lib/connectors/types';
+import type { StaticImageData } from 'next/image';
 
 type Cred = { exchange: string; apiKey: string; apiSecret: string };
 
@@ -16,7 +17,7 @@ type BalancesResponse = {
   aggregated: Balance[];
 };
 
-const EXCHANGE_LOGOS: Record<string, ExchangeOption['Logo']> = {
+const EXCHANGE_LOGOS: Record<string, StaticImageData> = {
   binance: BinanceLogo,
   coinbase: CoinbaseLogo,
   upbit: UpbitLogo,
@@ -26,7 +27,7 @@ const EXCHANGE_OPTIONS: ExchangeOption[] = Object.values(CONNECTORS)
   .map((connector) => {
     const Logo = EXCHANGE_LOGOS[connector.id];
     if (!Logo) return null;
-    return { id: connector.id, name: connector.displayName, Logo };
+    return { id: connector.id, name: connector.displayName, logo: Logo };
   })
   .filter((item): item is ExchangeOption => item !== null);
 
