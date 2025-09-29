@@ -113,6 +113,8 @@ const buildAmountLabel = (asset: string, amount: number) => {
   return `${amount.toFixed(4)}개`;
 };
 
+const getVariant = (value: number): 'up' | 'down' => (value >= 0 ? 'up' : 'down');
+
 export default function Page() {
   const [creds, setCreds] = useState<Cred[]>([]);
   const [loading, setLoading] = useState(false);
@@ -218,8 +220,8 @@ export default function Page() {
 
   const periods = useMemo(
     () => [
-      { label: '주간', amount: summary.weekly.amount, percent: summary.weekly.percent, variant: summary.weekly.amount >= 0 ? 'up' : 'down' as const },
-      { label: '월간', amount: summary.monthly.amount, percent: summary.monthly.percent, variant: summary.monthly.amount >= 0 ? 'up' : 'down' as const },
+      { label: '주간', amount: summary.weekly.amount, percent: summary.weekly.percent, variant: getVariant(summary.weekly.amount) },
+      { label: '월간', amount: summary.monthly.amount, percent: summary.monthly.percent, variant: getVariant(summary.monthly.amount) },
     ],
     [summary.weekly.amount, summary.weekly.percent, summary.monthly.amount, summary.monthly.percent],
   );
