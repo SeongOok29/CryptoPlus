@@ -3,20 +3,22 @@ import type { Balance } from '@/lib/connectors/types';
 export function BalanceTable({ title, data }: { title: string; data: Balance[] }) {
   if (!data || data.length === 0) return null;
   return (
-    <div className="card">
-      <h3 style={{ marginTop: 0 }}>{title}</h3>
-      <table>
+    <div className="table-card">
+      <div className="table-card__header">
+        <h3>{title}</h3>
+      </div>
+      <table className="table-card__table">
         <thead>
           <tr>
-            <th>자산</th>
-            <th>수량</th>
+            <th scope="col">자산</th>
+            <th scope="col">수량</th>
           </tr>
         </thead>
         <tbody>
-          {data.map((b) => (
-            <tr key={b.asset}>
-              <td>{b.asset}</td>
-              <td>{b.free}</td>
+          {data.map((balance) => (
+            <tr key={balance.asset}>
+              <td>{balance.asset}</td>
+              <td>{balance.free}</td>
             </tr>
           ))}
         </tbody>
@@ -24,4 +26,3 @@ export function BalanceTable({ title, data }: { title: string; data: Balance[] }
     </div>
   );
 }
-
